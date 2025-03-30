@@ -14,8 +14,8 @@ for x in arr:
 
 # Pattern building problem
 n = int(input("Enter the number till which loop will execute: "))
-for i in range(n, 1):
-    i = i - 1
+for i in range(0, n):
+    i += 1
     for j in range(i):
         print("*", end=' ')
     print()
