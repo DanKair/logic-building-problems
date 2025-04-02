@@ -1,0 +1,8 @@
+# The C++ executionals
+**/.exe
+# IDE related
+.idea/
+.vscode/
+**/.vscode/
+C++/*.vscode/
+DSA_Practice/*.vscode/

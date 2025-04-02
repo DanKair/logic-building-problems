@@ -24,6 +24,21 @@ for i in range(1, n+1):
     result *= i
     print(f"The factorial of {i}! = {result}")
 
+    
+# The sum of factorials program
+
+n = int(input("Enter the number of your choice: "))
+result = 1
+sum = 0
+# Why n+1? Because n is excluded and the range() behaves like this without n+1 (int i = 1; i < n; i++)
+# That's why we wanna actually it to be like this: (int i = 1; i <= n; i++), to achieve this behavior, we just made n+1
+for i in range(1, n+1): 
+    result *= i
+    sum += result
+    print(f"The factorial of {i}! = {result}")
+
+print(f"The sum of factorials = {sum}")    
+
 
 # Raise the user entered number to user entered exponent
 
@@ -81,4 +96,52 @@ while new_num != 0:
 
 print(f"The given decimal number {decimal_num} in binary form = {binary_num*10}") 
 """
+
+# Sum of the first N Fibonnaci Numbers
+# 1. Create the prev1, prev2 variables that starts with 0 and 1, because Fibonnaci Sequence starts with 0 and 1
+# 2. New Fibonnaci number = prev1 + prev2
+# 3. Assign the prev1 = prev2 and prev2 = fibonnaci_number 
+# 4. sum += fibonnaci_number
+"""
+num = int(input("Enter the number: "))
+
+def sum_of_n_fibonnaci_numbers(n: int):
+    prev1 = 0
+    prev2 = 1
+    fibonnaci = 0
+    sum = prev1 + prev2 # because it should firstly start with 0 + 1 and goes so on
+
+    for i in range(1, n):
+        fibonnaci = prev1 + prev2 
+        print(f"The {i} new fibonnaci number = {fibonnaci}")
+        prev1, prev2 = prev2, fibonnaci
+        sum += fibonnaci
+    return f"Sum of first {n} Fibonnaci numbers = {sum}"   
+
+print(sum_of_n_fibonnaci_numbers(num))"""
+
+# Check whether given number is armstrong number
+# To find an Armstrong number, you need to calculate the sum of each digit raised to the power of the number of digits in the given number 
+# and check if this sum equals the original number.
+# For example, 153 is an Armstrong number because 1^3+5^3+3^3 = 153
+
+num = int(input("Enter the number: ")) 
+power = len(str(num))
+def is_armstrong(n: int):
+    sum_of_num_digits = 0
+    given_num = n
+    while n != 0:
+        digit = n % 10
+        sum_of_num_digits += digit**power
+        n = n // 10
+    print(sum_of_num_digits)    
+
+    if sum_of_num_digits == given_num:
+        return f"The given number {given_num} is armstrong number"
+    else:
+        return f"The given number {given_num} is not armstrong number"  
+
+print(is_armstrong(num)) 
+
+
 
