@@ -125,7 +125,7 @@ print(sum_of_n_fibonnaci_numbers(num))"""
 # and check if this sum equals the original number.
 # For example, 153 is an Armstrong number because 1^3+5^3+3^3 = 153
 
-num = int(input("Enter the number: ")) 
+"""num = int(input("Enter the number: ")) 
 power = len(str(num))
 def is_armstrong(n: int):
     sum_of_num_digits = 0
@@ -141,7 +141,31 @@ def is_armstrong(n: int):
     else:
         return f"The given number {given_num} is not armstrong number"  
 
-print(is_armstrong(num)) 
+print(is_armstrong(num)) """
+
+# Number Guessing Game Hard Mode
+import random
+random_num = random.randint(1, 100)
+ATTEMPTS = 4
+guess_num = int(input("Try to guess number between 1 and 100: "))
+
+# The outer conditionals statements were made for validation check, sadly for now IDK how to Handle Exceptions, so I need to practice it
+if guess_num >= 1 and guess_num <= 100:
+    while ATTEMPTS != 0:
+        if guess_num > random_num: print("Too High")
+        else: print("Too low")
+        print(f"You have {ATTEMPTS} attempts left.")
+        ATTEMPTS -= 1
+        guess_num = int(input("Try to guess number between 1 and 100 again: ")) 
+    if guess_num == random_num:
+        print(f"Horray, You Have guessed the number {random_num}")
+    else:
+        print(f"Game over! The correct number was {random_num}")           
+else:
+    print("Whoops, probaby entered invalid value!")
+    guess_num = int(input("Please enter the number between 1 and 100 again: ")) 
+
+
 
 
 
