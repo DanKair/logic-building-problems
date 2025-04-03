@@ -124,8 +124,8 @@ print(sum_of_n_fibonnaci_numbers(num))"""
 # To find an Armstrong number, you need to calculate the sum of each digit raised to the power of the number of digits in the given number 
 # and check if this sum equals the original number.
 # For example, 153 is an Armstrong number because 1^3+5^3+3^3 = 153
-
-"""num = int(input("Enter the number: ")) 
+"""
+num = int(input("Enter the number: ")) 
 power = len(str(num))
 def is_armstrong(n: int):
     sum_of_num_digits = 0
@@ -141,9 +141,61 @@ def is_armstrong(n: int):
     else:
         return f"The given number {given_num} is not armstrong number"  
 
-print(is_armstrong(num)) """
+print(is_armstrong(num)) 
+"""
+
+# List of Armstrong numbers up to N given range using nested while loops
+"""
+n = int(input("Enter the number: ")) 
+def list_of_armstrong_numbers(n: int):
+    armstrong_numbers = []
+    i = 1
+    while i != n:
+        # Why sum_of_num_digits placed here? Because you actually wanna reset its value after each iteration
+        sum_of_num_digits = 0
+        # The number that will be checked each iteration, and its power (exponent) also should be updated
+        num = i
+        power = len(str(num))
+        #print(f"Num = {num}")  # This one was made to count the number of iterations
+        while num != 0:
+            digit = num % 10
+            sum_of_num_digits += digit**power
+            num = num // 10  
+        #print(sum_of_num_digits) # This line was made for testing-veryfying purposes      
+        if sum_of_num_digits == i: # This one checks whether sum of number digits is armstrong number
+            armstrong_numbers.append(sum_of_num_digits)
+        i += 1    
+    return armstrong_numbers     
+
+print(list_of_armstrong_numbers(n))
+"""
+
+# List of Armstrong numbers up to N given range using both for and while loop
+
+n = int(input("Enter the number: ")) 
+def list_of_armstrong_numbers(n: int):
+    armstrong_numbers = []
+    for i in range(1, n+1):
+        # Why sum_of_num_digits placed here? Because you actually wanna reset its value after each iteration
+        sum_of_num_digits = 0
+        # The number that will be checked each iteration, and its power (exponent) also should be updated
+        num = i
+        power = len(str(num))
+        #print(f"Num = {num}")  # This one was made to count the number of iterations
+        while num != 0:
+            digit = num % 10
+            sum_of_num_digits += digit**power
+            num = num // 10  
+        # This one checks if sum of each digit raised to the power of the number of digits == original number      
+        if sum_of_num_digits == i: 
+            armstrong_numbers.append(sum_of_num_digits)
+
+    return armstrong_numbers     
+
+print(list_of_armstrong_numbers(n))
 
 # Number Guessing Game Hard Mode
+"""
 import random
 random_num = random.randint(1, 100)
 ATTEMPTS = 4
@@ -151,6 +203,9 @@ guess_num = int(input("Try to guess number between 1 and 100: "))
 
 # The outer conditionals statements were made for validation check, sadly for now IDK how to Handle Exceptions, so I need to practice it
 if guess_num >= 1 and guess_num <= 100:
+    # This condition allows to guess the number with first try, if we delete 207-208 lines, your first inital try won't count
+    if guess_num == random_num:
+        print(f"Hooray, You Have guessed the number {random_num}✨!")
     while ATTEMPTS != 0:
         if guess_num > random_num: print("Too High")
         else: print("Too low")
@@ -158,14 +213,12 @@ if guess_num >= 1 and guess_num <= 100:
         ATTEMPTS -= 1
         guess_num = int(input("Try to guess number between 1 and 100 again: ")) 
     if guess_num == random_num:
-        print(f"Horray, You Have guessed the number {random_num}")
+        print(f"Hooray, You Have guessed the number {random_num}✨!")
     else:
         print(f"Game over! The correct number was {random_num}")           
 else:
     print("Whoops, probaby entered invalid value!")
-    guess_num = int(input("Please enter the number between 1 and 100 again: ")) 
-
-
-
+    guess_num = int(input("Please enter the number between 1 and 100 again: "))
+    """ 
 
 
