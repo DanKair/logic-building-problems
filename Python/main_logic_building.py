@@ -256,8 +256,9 @@ for i in range(1, num+1):
 """
 
 # Prime number check using counting all divisors of given number
+"""
 num = int(input("Enter the number: "))
-def is_prime_number(num: int):
+def prime_numbers_up_to_n(num: int):
     divisors_count = 0
     for i in range(1, num+1):
         remainder = num % i
@@ -269,4 +270,36 @@ def is_prime_number(num: int):
         return f"The given number {num} is not prime number!"
     return f"The given number {num} is prime number!"
 
-print(is_prime_number(num))
+print(prime_numbers_up_to_n(num))
+"""
+
+# List of prime numbers up to N given range
+# 1. while i != n: i += 1 # i is just current number that wil be checked e.g 1 and so on
+# 2. num = i
+# 3. for j in range(1, num+1)
+# 4. remainder = num % j
+
+n = int(input("Enter the number, till which loop will execute: "))
+def prime_numbers_up_to_n(n: int):
+    prime_numbers = []
+    for i in range(2, n+1):
+        # Why inside this loop? Due to the fact, that you wanna count the number of divisors for each iterated number
+        divisors_count = 0
+        num = i
+        for j in range(1, num+1):
+            remainder = num % j
+            #print(f"{num} % {j} = {remainder}") # Made to visualize each iteration
+            if remainder == 0 and num % 1 == 0 and num % num == 0:
+                divisors_count += 1
+
+        if divisors_count <= 2:
+            prime_numbers.append(i)
+        else:
+            # Additional divisor in this case scenario is divisors besides 1 and checked number itself
+            # e.g in number 15 it would be 5 and 3
+            print(f"The given number {num} is not prime number. "
+                  f"It has {divisors_count-2} more divisors besides 1 and {num} itself")    
+    return prime_numbers    
+
+
+print(prime_numbers_up_to_n(n))
