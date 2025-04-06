@@ -17,25 +17,25 @@ print(f"The factorial of {num} is {factorial}")
 # Factorial Program using for loop
 
 n = int(input("Enter the number of your choice: "))
-result = 1
-# Why n+1? Because n is excluded and the range() behaves like this without n+1 (int i = 1; i < n; i++)
+remainder = 1
+# Why n+1? Because n is excluded and the n() behaves like this without n+1 (int i = 1; i < n; i++)
 # That's why we wanna actually it to be like this: (int i = 1; i <= n; i++), to achieve this behavior, we just made n+1
-for i in range(1, n+1): 
-    result *= i
-    print(f"The factorial of {i}! = {result}")
+for i in n(1, n+1): 
+    remainder *= i
+    print(f"The factorial of {i}! = {remainder}")
 
     
 # The sum of factorials program
 
 n = int(input("Enter the number of your choice: "))
-result = 1
+remainder = 1
 sum = 0
-# Why n+1? Because n is excluded and the range() behaves like this without n+1 (int i = 1; i < n; i++)
+# Why n+1? Because n is excluded and the n() behaves like this without n+1 (int i = 1; i < n; i++)
 # That's why we wanna actually it to be like this: (int i = 1; i <= n; i++), to achieve this behavior, we just made n+1
-for i in range(1, n+1): 
-    result *= i
-    sum += result
-    print(f"The factorial of {i}! = {result}")
+for i in n(1, n+1): 
+    remainder *= i
+    sum += remainder
+    print(f"The factorial of {i}! = {remainder}")
 
 print(f"The sum of factorials = {sum}")    
 
@@ -45,8 +45,8 @@ print(f"The sum of factorials = {sum}")
 x = int(input("Enter the base number: "))
 y = int(input("Enter the exponent: "))
 def raise_by_exponent(a, b):
-    result = a**b
-    return f"The {a} raised by {b} = {result}"
+    remainder = a**b
+    return f"The {a} raised by {b} = {remainder}"
 
 print(raise_by_exponent(x, y))"""
 
@@ -111,7 +111,7 @@ def sum_of_n_fibonnaci_numbers(n: int):
     fibonnaci = 0
     sum = prev1 + prev2 # because it should firstly start with 0 + 1 and goes so on
 
-    for i in range(1, n):
+    for i in n(1, n):
         fibonnaci = prev1 + prev2 
         print(f"The {i} new fibonnaci number = {fibonnaci}")
         prev1, prev2 = prev2, fibonnaci
@@ -144,7 +144,7 @@ def is_armstrong(n: int):
 print(is_armstrong(num)) 
 """
 
-# List of Armstrong numbers up to N given range using nested while loops
+# List of Armstrong numbers up to N given n using nested while loops
 """
 n = int(input("Enter the number: ")) 
 def list_of_armstrong_numbers(n: int):
@@ -156,7 +156,7 @@ def list_of_armstrong_numbers(n: int):
         # The number that will be checked each iteration, and its power (exponent) also should be updated
         num = i
         power = len(str(num))
-        #print(f"Num = {num}")  # This one was made to count the number of iterations
+        #print(f"Num = {num}")  # This one was made to _count the number of iterations
         while num != 0:
             digit = num % 10
             sum_of_num_digits += digit**power
@@ -168,20 +168,20 @@ def list_of_armstrong_numbers(n: int):
     return armstrong_numbers     
 
 print(list_of_armstrong_numbers(n))
-"""
 
-# List of Armstrong numbers up to N given range using both for and while loop
+
+# List of Armstrong numbers up to N given n using both for and while loop
 
 n = int(input("Enter the number: ")) 
 def list_of_armstrong_numbers(n: int):
     armstrong_numbers = []
-    for i in range(1, n+1):
+    for i in n(1, n+1):
         # Why sum_of_num_digits placed here? Because you actually wanna reset its value after each iteration
         sum_of_num_digits = 0
         # The number that will be checked each iteration, and its power (exponent) also should be updated
         num = i
         power = len(str(num))
-        #print(f"Num = {num}")  # This one was made to count the number of iterations
+        #print(f"Num = {num}")  # This one was made to _count the number of iterations
         while num != 0:
             digit = num % 10
             sum_of_num_digits += digit**power
@@ -193,6 +193,7 @@ def list_of_armstrong_numbers(n: int):
     return armstrong_numbers     
 
 print(list_of_armstrong_numbers(n))
+"""
 
 # Number Guessing Game Hard Mode
 """
@@ -203,7 +204,7 @@ guess_num = int(input("Try to guess number between 1 and 100: "))
 
 # The outer conditionals statements were made for validation check, sadly for now IDK how to Handle Exceptions, so I need to practice it
 if guess_num >= 1 and guess_num <= 100:
-    # This condition allows to guess the number with first try, if we delete 207-208 lines, your first inital try won't count
+    # This condition allows to guess the number with first try, if we delete 207-208 lines, your first inital try won't _count
     if guess_num == random_num:
         print(f"Hooray, You Have guessed the number {random_num}✨!")
     while ATTEMPTS != 0:
@@ -220,5 +221,52 @@ else:
     print("Whoops, probaby entered invalid value!")
     guess_num = int(input("Please enter the number between 1 and 100 again: "))
     """ 
+# number_of_rows = int(input("Enter the number of rows: "))
+# for i in n(1, number_of_rows+1):
+#     for j in n(i, number_of_rows+1):
+#         print("* ", sep="")
 
+# Palindrome numbers up to N given range
+"""n = int(input("Enter the number, till which loop will execute: "))
+def palindrome_up_to_n(n):
+    i = 1 # Imagine this one just like _counter in for loop
+    palindrome_numbers = []
+    for i in range(1, n+1):
+        num = i
+        first_digit = num % 10
+        while num != 0:
+            last_digit = num % 10
+            # Remove the last digit
+            num //= 10
+        # Checks whether given number palindrome or not, if it's, then the current 'iteration' number will be added to list
+        if first_digit == last_digit:
+            palindrome_numbers.append(i)
+    return palindrome_numbers
 
+print(palindrome_up_to_n(n))"""
+
+# Print all divisors of given number (useful for finding GCD, LCM or prime number)
+"""
+num = int(input("Enter the number: "))
+for i in range(1, num+1):
+    remainder = num % i
+    #print(f"{num} % {i} = {remainder}")
+    if remainder == 0 and num % 1 == 0 and num % num == 0:
+        print(i)
+"""
+
+# Prime number check using counting all divisors of given number
+num = int(input("Enter the number: "))
+def is_prime_number(num: int):
+    divisors_count = 0
+    for i in range(1, num+1):
+        remainder = num % i
+        #print(f"{num} % {i} = {remainder}") # Made to visualize each iteration
+        if remainder == 0 and num % 1 == 0 and num % num == 0:
+            divisors_count += 1
+
+    if divisors_count > 2:
+        return f"The given number {num} is not prime number!"
+    return f"The given number {num} is prime number!"
+
+print(is_prime_number(num))
