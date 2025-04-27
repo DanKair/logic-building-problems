@@ -248,9 +248,10 @@ num = int(input("Enter the number: "))
 for i in range(1, num+1):
     remainder = num % i
     #print(f"{num} % {i} = {remainder}")
-    if remainder == 0 and num % 1 == 0 and num % num == 0:
+    if remainder == 0:
         print(i)
 """
+
 
 # Prime number check using counting all divisors of given number
 """
@@ -260,7 +261,7 @@ def prime_numbers_up_to_n(num: int):
     for i in range(1, num+1):
         remainder = num % i
         #print(f"{num} % {i} = {remainder}") # Made to visualize each iteration
-        if remainder == 0 and num % 1 == 0 and num % num == 0:
+        if remainder == 0 and num % num == 0:
             divisors_count += 1
 
     if divisors_count > 2:
@@ -301,11 +302,11 @@ def prime_numbers_up_to_n(n: int):
 
 print(prime_numbers_up_to_n(n))"""
 
-# Finding GCD of Two Numbers using Eucladian Algorithm
+# Finding GCD of Two Numbers using Euclidean Algorithm
 # 1. while less_num != great_num
 # 2. great_num -= less_num
-# 3. result = any of them, doesn't matter really, because they're same
-
+# 3. result = any of them, doesn't matter really, because they're same now already
+"""
 a = int(input("Enter the first number: "))
 b = int(input("Enter the second number: "))
 
@@ -319,3 +320,51 @@ def gcd_of_two_numbers(a, b):
 
 gcd = gcd_of_two_numbers(a, b)
 print(f"The GCD of {a} and {b} = {gcd}")
+"""
+
+# Finding GCD using main, basic method (Listing Factors method)
+# 1. List the factors (divisors) of num1, num2
+# 2. Identify the common divisors
+# 3. Find the largest one inside common divisors
+
+# In Programming we can implement it using lists
+# 1. Store divisors of num1 and num2 in their corresponding divisors_of_num list
+# 2. Create a seperate common divisors list
+# 3. Find the max value inside common_divisors list
+
+num1 = int(input("Enter the number: "))
+
+def divisors_of_num(num: int) -> list:
+    divisors = []
+    for i in range(1, num+1):
+        remainder = num % i
+        #print(f"{num} % {i} = {remainder}")
+        if remainder == 0:
+            divisors.append(i)
+    return divisors 
+
+divisors_of_num1 = divisors_of_num(num1)  
+print(f"Divisors of {num1} = {divisors_of_num1}")
+
+num2 = int(input("Enter the number: "))
+divisors_of_num2 = divisors_of_num(num2)
+print(f"Divisors of {num2} = {divisors_of_num2}")  
+
+def common_numbers_of_two_list(list1: list, list2: list) -> list:
+    common_divisors = []
+    for i in list1:
+        for j in list2:
+            if i == j:
+                common_divisors.append(i)
+    return common_divisors
+
+common_divisors = common_numbers_of_two_list(list1=divisors_of_num1, list2=divisors_of_num2)
+print(f"Common divisors of {num1} and {num2} = {common_divisors}")
+
+# This one finds Greatest Common Divisor in the common_divisors list
+def max_in_list(lst: list) -> list:
+    greatest_common_divisor = max(lst)
+    return greatest_common_divisor
+
+gcd = max_in_list(common_divisors)
+print(f"GCD of {num1} and {num2} = {gcd}")
