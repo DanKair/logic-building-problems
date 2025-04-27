@@ -221,10 +221,7 @@ else:
     print("Whoops, probaby entered invalid value!")
     guess_num = int(input("Please enter the number between 1 and 100 again: "))
     """ 
-# number_of_rows = int(input("Enter the number of rows: "))
-# for i in n(1, number_of_rows+1):
-#     for j in n(i, number_of_rows+1):
-#         print("* ", sep="")
+
 
 # Palindrome numbers up to N given range
 """n = int(input("Enter the number, till which loop will execute: "))
@@ -278,7 +275,7 @@ print(prime_numbers_up_to_n(num))
 # 2. num = i
 # 3. for j in range(1, num+1)
 # 4. remainder = num % j
-
+"""
 n = int(input("Enter the number, till which loop will execute: "))
 def prime_numbers_up_to_n(n: int):
     prime_numbers = []
@@ -302,4 +299,23 @@ def prime_numbers_up_to_n(n: int):
     return prime_numbers    
 
 
-print(prime_numbers_up_to_n(n))
+print(prime_numbers_up_to_n(n))"""
+
+# Finding GCD of Two Numbers using Eucladian Algorithm
+# 1. while less_num != great_num
+# 2. great_num -= less_num
+# 3. result = any of them, doesn't matter really, because they're same
+
+a = int(input("Enter the first number: "))
+b = int(input("Enter the second number: "))
+
+def gcd_of_two_numbers(a, b):
+    while a != b or b != a: # We don't know ahead who is greater, that's why just made two comparisons
+        if a < b:
+            b -= a
+        else:
+            a -= b
+    return a                
+
+gcd = gcd_of_two_numbers(a, b)
+print(f"The GCD of {a} and {b} = {gcd}")
