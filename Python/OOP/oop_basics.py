@@ -80,33 +80,7 @@ class Bike(Vehicle):
     def info(self):
         return f"Brand: {self.brand}\nEngine: {self.engine}\nMax Speed: {self.max_speed} km/h"    """               
 
-"""class Animal:
-    number_of_animals = 0
-    def __init__(self, type, name):
-        self.type = type
-        self.name = name
-        Animal.number_of_animals += 1
 
-    def speak(self):
-        return "Some sound!" 
-
-class Dog(Animal):
-    def __init__(self, type, name):
-        super().__init__(type, name)          
-
-    def speak(self) :
-        return f"Woof! I'm {self.name}"       
-
-class Cat(Animal):
-    def __init__(self, type, name):
-        super().__init__(type, name)
-
-    def speak(self):
-        return f"Meow, I'm {self.name}"   
-
-dog1 = Dog("labrador", "Kitt")  
-print(dog1.speak())       
-"""
 
 class Person:
     number_of_people = 0
