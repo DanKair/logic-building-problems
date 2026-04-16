@@ -10,6 +10,7 @@ public class QuickUnion {
         }
     }
 
+    // root = the final node in the chain (the one pointing to itself)
     // chase parent pointers until reach root
     // (depth of i array accesses)
     private int root(int i) {   // find operation
@@ -46,6 +47,10 @@ public class QuickUnion {
         qu.union(1, 3); // 3 becomes root of 1
         qu.union(3, 4); // 4 -> 3 -> 1
         System.out.println(qu.connected(3, 1));
+        qu.displayQUnion();
+        qu.union(0, 2);
+        qu.displayQUnion();
+        qu.union(4, 2);
         qu.displayQUnion();
     }
 }
